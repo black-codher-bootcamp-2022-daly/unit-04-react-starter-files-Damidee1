@@ -8,6 +8,10 @@ const PetForm = () => {
 
   function handleSubmit(event) {
     event.preventDefault();
+    setAge(0);
+    setName("");
+    setColor("");
+
     setSubmitted(true);
   }
 
@@ -59,13 +63,15 @@ const PetForm = () => {
 
         <input type="submit" value="Submit" id="submit-button" />
       </form>
-      <div id="results">
-        <h3>Results</h3>
-        Name: {name}
-        Age:{age}
-        Color:{color}
-        <br />
-      </div>
+      {submitted ? (
+        "Thanks for submitting"
+      ) : (
+        <>
+          <h3>Results</h3>
+          <div>Name: {name}</div>
+          <div>Age: {age}</div>
+        </>
+      )}
     </div>
   );
 };
